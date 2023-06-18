@@ -22,9 +22,6 @@ export class AuthService {
             return this.signToken(user.id, user.email);
 
         } catch (error) {
-            console.log(error)
-            console.log(error)
-            console.log(error.code)
             if (error.code === 'P2002') {
                 throw new ForbiddenException('Credentials taken')
             }
