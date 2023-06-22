@@ -118,7 +118,7 @@ describe('App e2e', () => {
         description: "Desc",
       };
       it('should get bookmarks by id', () => {
-        return pactum.spec().put('/bookmarks/{id}').withPathParams('id', "$S{bookmarkId}")
+        return pactum.spec().patch('/bookmarks/{id}').withPathParams('id', "$S{bookmarkId}")
           .withHeaders({ Authorization: 'Bearer $S{userAt}'}).withBody(dto).expectStatus(200).expectBodyContains(dto.title).expectBodyContains(dto.description);
       })
     });
